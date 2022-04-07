@@ -11,20 +11,20 @@
 			<table border="1">
 				<tr>
 					<td>아이디</td>
-					<td><input type="text" name="uid"/></td>
+					<td><input type="text" name="uid" readonly th:value="${member.uid}"/></td>
 				</tr>
 				<tr>
 					<td>이름</td>
-					<td><input type="text" name="name"/></td>
+					<td><input type="text" name="name" th:value="${member.name}"/></td>
 				</tr>
 				<tr>
 					<td>휴대폰</td>
-					<td><input type="text" name="hp"/></td>
+					<td><input type="text" name="hp" th:value="${member.hp}"/></td>
 				</tr>
 				<tr>
 					<td>직급</td>
 					<td>
-						<select name="pos">
+						<select name="pos" th:value="${member.pos}">
 							<option>사원</option>
 							<option>대리</option>
 							<option>과장</option>
@@ -36,7 +36,7 @@
 				<tr>
 					<td>부서</td>
 					<td>
-						<select name="dep">
+						<select name="dep" th:value="${member.dep}">
 							<option value="101">영업1부</option>
 							<option value="102">영업2부</option>
 							<option value="103">영업3부</option>

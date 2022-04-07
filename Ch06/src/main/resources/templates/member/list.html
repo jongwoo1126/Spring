@@ -2,24 +2,28 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title>user/list</title>
+		<title>member/list</title>
 	</head>
 	<body>
-		<h3>user/list</h3>
-		<a th:href="@{/user/register}">등록하기</a>
+		<h3>member/list</h3>
+		<a th:href="@{/member/register}">등록하기</a>
 		<table border="1">
 			<tr>
 				<th>아이디</th>
 				<th>이름</th>
 				<th>휴대폰</th>
-				<th>나이</th>
+				<th>직급</th>
+				<th>부서</th>
+				<th>입사일</th>
 				<th>관리</th>
 			</tr>
-			<tr th:each="user:${users}">
-				<td>[[${user.uid}]]</td>
-				<td th:text=${user.name}>홍길동</td>
-				<td th:text=${user.hp}>010-1212-1010</td>
-				<td th:text=${user.age}>23</td>
+			<tr th:each="member:${members}">
+				<td>[[${member.uid}]]</td>
+				<td th:text=${member.name}>홍길동</td>
+				<td th:text=${member.hp}>010-1212-1010</td>
+				<td th:text=${member.pos}>사원</td>
+				<td th:text=${member.dep}>101</td>
+				<td th:text=${member.rdate}>날짜</td>
 				<td>
 					<a th:href="@{/user/modify(uid=${user.uid})}">수정</a>
 					<a th:href="@{/user/delete(uid=${user.uid})}">삭제</a>
