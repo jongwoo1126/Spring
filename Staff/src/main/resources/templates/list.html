@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>list</title>
+	</head>
+	<body>
+		<h3>list</h3>
+		<a th:href="@{/register}">등록하기</a>
+		<table border="1">
+			<tr>
+				<th>직원번호</th>
+				<th>이름</th>
+				<th>생년월일</th>
+				<th>성별</th>
+				<th>휴대폰</th>
+				<th>주소</th>
+				<th>입사일</th>
+				<th>관리</th>
+			</tr>
+			<tr th:each="staff:${staffs}">
+				<td th:text=${staff.stf_no}>1</td>
+				<td th:text=${staff.stf_name}>김유신</td>
+				<td th:text=${staff.stf_birth}>1983-02-05</td>
+				<td th:text=${staff.stf_gender}>남</td>
+				<td th:text=${staff.stf_hp}>010-1234-1001</td>
+				<td th:text=${staff.stf_addr}>경상남도 김해시</td>
+				<td th:text=${staff.stf_date}>2021-03-02</td>
+				<td>
+					<a th:href="@{/modify(stf_no=${staff.stf_no})}">수정</a>
+					<a th:href="@{/delete(stf_no=${staff.stf_no})}">삭제</a>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
