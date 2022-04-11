@@ -1,14 +1,13 @@
-package kr.co.ch06;
+package kr.co.ch07;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Ch06Application {
+public class Ch07Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Ch06Application.class, args);
+		SpringApplication.run(Ch07Application.class, args);
 	}
 
 }
