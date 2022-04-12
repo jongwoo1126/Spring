@@ -7,6 +7,8 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import kr.co.ch08.persistence.UserRepo;
@@ -19,6 +21,10 @@ public class UserService implements UserDetailsService{
 	private UserRepo repo;
 	
 	public void insertUser(UserVo vo) {
+		
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		vo.setPass(passwordEncoder.encode(vo.getPass()));
+		
 		repo.save(vo);
 	}
 	public UserVo selectUser(String uid) {
@@ -46,8 +52,9 @@ public class UserService implements UserDetailsService{
 		
 		return User.builder()
 				.username(userVo.getUid())
-				.password("{noop}"+userVo.getPass())
-				.roles("USER").build();
+				.password(userVo.getPass())
+				.roles("USER")
+				.build();
 	}
 
 }
