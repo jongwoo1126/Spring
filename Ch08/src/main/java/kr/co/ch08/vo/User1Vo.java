@@ -9,12 +9,12 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name="User2")
-public class UserVo {
+public class User1Vo {
 	
 	@Id
 	private String uid;
 	private String pass;
 	private String name;
 	private String hp;
-	private String age;
+	private int age;
 }

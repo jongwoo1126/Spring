@@ -2,12 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
-		<title>user/login</title>
+		<title>user2/login</title>
 	</head>
 	<body>
-		<h3>user/login</h3>
+		<h3>user2/login</h3>
 		
-		<form th:action="@{#}" method="post">
+		<form th:action="@{/user2/login}" method="post">
 			<table border="1">
 				<tr>
 					<td>아이디</td>
@@ -22,7 +22,7 @@
 				</tr>
 			</table>
 		</form>
-		<a th:href="@{/user/register}">회원가입</a>
+		<a th:href="@{/user2/register}">회원가입</a>
 		
 	</body>
 </html>

@@ -5,14 +5,14 @@
 >
 	<head>
 		<meta charset="UTF-8">
-		<title>user/loginSuccess</title>
+		<title>user1/loginSuccess</title>
 	</head>
 	<body>
-		<h3>user/loginSuccess</h3>
+		<h3>user1/loginSuccess</h3>
 		
 		<p>
-			[[$(#authentication.name)]]님 반갑습니다.<br>
-			<a th:href="@{/user/logout}">로그아웃</a>
+			<span sec:authentication="name">님 반갑습니다.<br>
+			<a th:href="@{/user1/logout}">로그아웃</a>
 		</p>		
 	</body>
 </html>
