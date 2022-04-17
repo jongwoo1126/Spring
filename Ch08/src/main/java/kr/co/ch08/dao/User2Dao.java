@@ -19,4 +19,5 @@ public interface User2Dao {
 	public List<User2Vo> selectUsers();
 	public void updateUser(User2Vo vo);
 	public void deleteUser(String uid);
+	
 }

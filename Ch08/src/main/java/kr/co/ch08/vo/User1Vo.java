@@ -8,9 +8,9 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="User2")
+@Table(name = "User2")
 public class User1Vo {
-	
+
 	@Id
 	private String uid;
 	private String pass;

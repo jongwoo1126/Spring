@@ -9,12 +9,12 @@
 		SELECT * FROM `User2`;
 	</select>
 	<update id="updateUser">
-		UPDATE `User2` SET
+		UPDATE `User2` SET 
 			`name`=#{name},
 			`hp`=#{hp},
 			`age`=#{age}
 		WHERE
-			`uid`=#{uid};
+			`uid`=#{uid};			
 	</update>
 	<delete id="deleteUser">
 		DELETE FROM `User2` WHERE `uid`=#{uid};
