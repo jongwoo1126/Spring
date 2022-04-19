@@ -1,4 +1,4 @@
-package kr.co.Sboard1;
+package kr.co.sboard1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

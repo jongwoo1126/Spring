@@ -1,20 +1,19 @@
-package kr.co.Sboard1.vo;
+package kr.co.sboard1.vo;
 
-import java.security.Timestamp;
-import java.util.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "Board_user")
 public class UserVo {
@@ -32,8 +31,8 @@ public class UserVo {
 	private String addr2;
 	private String regip;
 	
-	@Column(updatable = false)
+	@Column(updatable=false)
 	@CreationTimestamp
 	private Timestamp rdate;
-
+	
 }

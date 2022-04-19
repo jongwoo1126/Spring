@@ -1,14 +1,14 @@
-package kr.co.Sboard1.service;
+package kr.co.sboard1.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.co.Sboard1.dao.UserDao;
-import kr.co.Sboard1.persistence.UserRepo;
-import kr.co.Sboard1.vo.TermsVo;
-import kr.co.Sboard1.vo.UserVo;
+import kr.co.sboard1.dao.UserDao;
+import kr.co.sboard1.persistence.UserRepo;
+import kr.co.sboard1.vo.TermsVo;
+import kr.co.sboard1.vo.UserVo;
 
 @Service
 public class UserService {
@@ -22,19 +22,17 @@ public class UserService {
 	public void insertUser(UserVo vo) {
 		dao.insertUser(vo);
 	}
-
+	
 	public TermsVo selectTerms() {
 		return dao.selectTerms();
 	}
 	
 	public int countUserUid(String uid) {
-		return repo.countUsertVoByUid(uid);
+		return repo.countUserVoByUid(uid);
 	}
-	
 	public UserVo selectUser(UserVo vo) {
 		return dao.selectUser(vo);
 	}
-	
 	public List<UserVo> selectUsers(){
 		return null;
 	}

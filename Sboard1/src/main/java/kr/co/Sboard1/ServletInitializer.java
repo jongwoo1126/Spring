@@ -1,4 +1,4 @@
-package kr.co.Sboard1;
+package kr.co.sboard1;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
