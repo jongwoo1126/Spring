@@ -1,4 +1,4 @@
-package kr.co.sboard1.vo;
+package kr.co.Sboard1.vo;
 
 import java.sql.Timestamp;
 

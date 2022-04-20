@@ -1,11 +1,11 @@
-package kr.co.sboard1.controller;
+package kr.co.Sboard1.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import kr.co.sboard1.vo.UserVo;
+import kr.co.Sboard1.vo.UserVo;
 
 @SessionAttributes("sessUser")
 @Controller

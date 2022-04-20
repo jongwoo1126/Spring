@@ -1,12 +1,12 @@
-package kr.co.sboard1.dao;
+package kr.co.Sboard1.dao;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
-import kr.co.sboard1.vo.TermsVo;
-import kr.co.sboard1.vo.UserVo;
+import kr.co.Sboard1.vo.TermsVo;
+import kr.co.Sboard1.vo.UserVo;
 
 @Mapper
 @Repository

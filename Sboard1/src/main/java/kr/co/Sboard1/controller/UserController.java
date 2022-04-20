@@ -1,15 +1,11 @@
-package kr.co.sboard1.controller;
+package kr.co.Sboard1.controller;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpUtils;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +14,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import kr.co.sboard1.service.UserService;
-import kr.co.sboard1.vo.TermsVo;
-import kr.co.sboard1.vo.UserVo;
+import kr.co.Sboard1.service.UserService;
+import kr.co.Sboard1.vo.TermsVo;
+import kr.co.Sboard1.vo.UserVo;
 
 @SessionAttributes("sessUser")
 @Controller

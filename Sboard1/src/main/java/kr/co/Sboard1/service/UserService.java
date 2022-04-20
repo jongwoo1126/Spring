@@ -1,14 +1,14 @@
-package kr.co.sboard1.service;
+package kr.co.Sboard1.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.co.sboard1.dao.UserDao;
-import kr.co.sboard1.persistence.UserRepo;
-import kr.co.sboard1.vo.TermsVo;
-import kr.co.sboard1.vo.UserVo;
+import kr.co.Sboard1.dao.UserDao;
+import kr.co.Sboard1.persistence.UserRepo;
+import kr.co.Sboard1.vo.TermsVo;
+import kr.co.Sboard1.vo.UserVo;
 
 @Service
 public class UserService {

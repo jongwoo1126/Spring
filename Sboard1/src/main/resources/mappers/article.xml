@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.sboard1.dao.ArticleDao">
+<mapper namespace="kr.co.Sboard1.dao.ArticleDao">
 	<insert id="insertArticle" useGeneratedKeys="true" keyProperty="no">
 		INSERT INTO `Board_article` SET 
 			`title`=#{title},
@@ -16,8 +16,18 @@
 			`nName`=#{nName},
 			`rdate`=NOW();
 	</insert>
-	<select id="selectArticle"  resultType="kr.co.sboard1.vo.ArticleVo"></select>
-	<select id="selectArticles" resultType="kr.co.sboard1.vo.ArticleVo"></select>
+	<select id="selectArticle"  resultType="kr.co.Sboard1.vo.ArticleVo"></select>
+	<select id="selectArticles" resultType="kr.co.Sboard1.vo.ArticleVo">
+		SELECT a*,b.`nick` FROM `Board_article` AS a
+		JOIN `Board_user` AS b  
+		on a.`uid`=b.`uid`
+		WHERE `parent`= 0 
+		ORDER BY `no` DESC
+		LIMIT #{start},10;
+	</select>
+	<select id="selectCountTotal" resultType="int">
+		SELECT COUNT(`no`) FROM `Board_article` WHERE `parent`=0;
+	</select>
 	<update id="updateArticle"></update>
 	<delete id="deleteArticle"></delete>
 </mapper>

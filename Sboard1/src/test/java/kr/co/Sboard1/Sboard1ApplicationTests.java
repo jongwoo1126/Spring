@@ -1,13 +1,13 @@
-package kr.co.sboard1;
+package kr.co.Sboard1;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import kr.co.sboard1.dao.ArticleDao;
-import kr.co.sboard1.persistence.ArticleRepo;
-import kr.co.sboard1.persistence.UserRepo;
-import kr.co.sboard1.vo.ArticleVo;
+import kr.co.Sboard1.dao.ArticleDao;
+import kr.co.Sboard1.persistence.ArticleRepo;
+import kr.co.Sboard1.persistence.UserRepo;
+import kr.co.Sboard1.vo.ArticleVo;
 
 @SpringBootTest
 class Sboard1ApplicationTests {
