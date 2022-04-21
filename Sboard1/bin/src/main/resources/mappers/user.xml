@@ -15,13 +15,13 @@
 			`regip`=#{regip},
 			`rdate`=NOW();
 	</insert>
-	<select id="selectTerms"  resultType="kr.co.sboard1.vo.TermsVo">
+	<select id="selectTerms"  resultType="kr.co.Sboard1.vo.TermsVo">
 		SELECT * FROM `Board_terms`;
 	</select>
-	<select id="selectUser"  resultType="kr.co.sboard1.vo.UserVo">
+	<select id="selectUser"  resultType="kr.co.Sboard1.vo.UserVo">
 		SELECT * FROM `Board_user` WHERE `uid`=#{uid} AND `pass`=PASSWORD(#{pass});
 	</select>
-	<select id="selectUsers" resultType="kr.co.sboard1.vo.UserVo"></select>
+	<select id="selectUsers" resultType="kr.co.Sboard1.vo.UserVo"></select>
 	<update id="updateUser"></update>
 	<delete id="deleteUser"></delete>
 </mapper>

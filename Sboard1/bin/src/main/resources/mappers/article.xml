@@ -16,8 +16,8 @@
 			`nName`=#{nName},
 			`rdate`=NOW();
 	</insert>
-	<select id="selectArticle"  resultType="kr.co.sboard1.vo.ArticleVo"></select>
-	<select id="selectArticles" resultType="kr.co.sboard1.vo.ArticleVo"></select>
+	<select id="selectArticle"  resultType="kr.co.Sboard1.vo.ArticleVo"></select>
+	<select id="selectArticles" resultType="kr.co.Sboard1.vo.ArticleVo"></select>
 	<update id="updateArticle"></update>
 	<delete id="deleteArticle"></delete>
 </mapper>

@@ -1,9 +1,13 @@
 package kr.co.Sboard1.service;
 
 import java.io.File;
+import java.net.URLEncoder;
 import java.util.List;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -29,9 +33,9 @@ public class ArticleService {
 	
 	public int insertArticle(ArticleVo vo) {
 		// JPA
-		repo.save(vo);
+		//repo.save(vo);
 		// MyBatis
-		//dao.insertArticle(vo);
+		dao.insertArticle(vo);
 		return vo.getNo();
 	}
 	
@@ -43,8 +47,24 @@ public class ArticleService {
 		dao.insertFile(vo);
 	}
 	
+	public int insertComment(ArticleVo vo) {
+		return dao.insertComment(vo);
+		
+	}
+	
+	public List<ArticleVo> selectComments(int no) {
+		return dao.selectComments(no);
+		
+	}
+	
 	public ArticleVo selectArticle(int no) {
-		return null;
+		
+		// JPA
+		
+		// MyBatis
+		ArticleVo article = dao.selectArticle(no);
+		
+		return article;
 	}
 	public List<ArticleVo> selectArticles(int start){
 		
@@ -65,10 +85,20 @@ public class ArticleService {
 		return total;
 	}
 	
+	public FileVo selectFile(int fid) {
+		// JPA
+		// MyBatis
+		FileVo fvo = dao.selectFile(fid);
+		
+		return fvo;
+
+	}
+	
+	
 	public void updateArticle(ArticleVo vo) {}
 	public void deleteArticle(int no) {}
 
-	@Value("${file.upload-dir}")
+	@Value("${spring.servlet.multipart.location}")
 	private String uploadDir;
 	
 	public FileVo fileUpload(MultipartFile fname) {
@@ -97,8 +127,26 @@ public class ArticleService {
 		return fvo;
 	}
 	
-	public void fileDownload() {
-		
+	public void fileDownload(HttpServletResponse resp, FileVo fvo) {
+		try {
+			// 파일 다운로드 response 헤더수정	
+			resp.setContentType("application/octet-stream");
+			resp.setHeader("Content-Disposition", "attachment; filename="+URLEncoder.encode(fvo.getOName(), "utf-8"));
+			resp.setHeader("Content-Transfer-Encoding", "binary");
+			resp.setHeader("Pragma", "no-cache");
+			resp.setHeader("Cache-Control", "private");
+			
+			// 파일 스트림 작업
+			String path = new File(uploadDir).getAbsolutePath()+"/"+fvo.getNName();
+			byte[] fileByte = FileUtils.readFileToByteArray(new File(path));
+			
+			resp.getOutputStream().write(fileByte);
+			resp.getOutputStream().flush();
+			resp.getOutputStream().close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public int getLastPageNum(int total){
