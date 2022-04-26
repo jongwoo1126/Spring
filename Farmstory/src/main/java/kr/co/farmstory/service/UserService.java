@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.farmstory.dao.UserDao;
+import kr.co.farmstory.vo.TermsVo;
 import kr.co.farmstory.vo.UserVo;
 
 @Service
@@ -19,8 +20,16 @@ public class UserService {
 		dao.insertUser(vo);
 	}
 	
-	public UserVo selectUser(String uid) {
-		return null;
+	public UserVo selectUser(UserVo vo) {
+		return dao.selectUser(vo);
+	}
+	
+	public TermsVo selectTerms() {
+		return dao.selectTerms();
+	}
+	
+	public int selectCountUser(String uid) {
+		return dao.selectCountUser(uid);
 	}
 	
 	public List<UserVo> selectUsers() {
