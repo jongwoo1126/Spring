@@ -1,5 +1,7 @@
 package kr.co.farmstory.vo;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,4 +24,8 @@ public class ArticleVo {
 	public String getRdate() {
 		return rdate.toString().substring(2, 10);
 	}
+	// 추가필드
+	private String cate;
+	private MultipartFile fname;
+	private String nick;
 }
