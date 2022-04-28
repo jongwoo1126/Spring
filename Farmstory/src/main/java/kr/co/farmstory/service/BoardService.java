@@ -12,7 +12,6 @@ import org.springframework.web.multipart.MultipartFile;
 import kr.co.farmstory.dao.BoardDao;
 import kr.co.farmstory.vo.ArticleVo;
 import kr.co.farmstory.vo.FileVo;
-
 @Service
 public class BoardService {
 

@@ -33,5 +33,7 @@
 		SELECT COUNT(`no`) FROM `Board_article` WHERE `parent`=0 AND `type`=#{type};
 	</select>
 	<update id="updateArticle"></update>
-	<delete id="deleteArticle"></delete>
+	<delete id="deleteArticle">
+		DELETE FROM `Board_article` WHERE `no`=#{no};
+	</delete>
 </mapper>

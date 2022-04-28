@@ -6,9 +6,9 @@
             <img th:src="@{/img/sub_aside_cate3_tit.png}" alt="농작물 이야기"/>
 
             <ul class="lnb">
-                <li th:classappend="${type}=='story'?'on'"><a th:href="@{/board/list(cate=croptalk, type=story)}">장보기</a></li>
-                <li th:classappend="${type}=='grow'?'on'"><a th:href="@{/board/list(cate=croptalk, type=grow)}">텃밭가꾸기</a></li>
-                <li th:classappend="${type}=='school'?'on'"><a th:href="@{/board/list(cate=croptalk, type=school)}">귀농학교</a></li>
+                <li th:classappend="${type}=='story'?'on'"><a th:href="@{/board/list(cate=croptalk, type=story, pg=1)}">장보기</a></li>
+                <li th:classappend="${type}=='grow'?'on'"><a th:href="@{/board/list(cate=croptalk, type=grow, pg=1)}">텃밭가꾸기</a></li>
+                <li th:classappend="${type}=='school'?'on'"><a th:href="@{/board/list(cate=croptalk, type=school, pg=1)}">귀농학교</a></li>
             </ul>
 
         </aside>

@@ -6,11 +6,11 @@
             <img th:src="@{/img/sub_aside_cate5_tit.png}" alt="커뮤니티"/>
 
             <ul class="lnb">
-                <li th:classappend="${type}=='notice'?'on'"><a th:href="@{/board/list(cate=community, type=notice)}">공지사항</a></li>
-                <li th:classappend="${type}=='menu'?'on'"><a th:href="@{/board/list(cate=community, type=menu)}">오늘의식단</a></li>
-                <li th:classappend="${type}=='chef'?'on'"><a th:href="@{/board/list(cate=community, type=chef)}">나도요리사</a></li>
-                <li th:classappend="${type}=='qna'?'on'"><a th:href="@{/board/list(cate=community, type=qna)}">고객문의</a></li>
-                <li th:classappend="${type}=='faq'?'on'"><a th:href="@{/board/list(cate=community, type=faq)}">자주묻는질문</a></li>
+                <li th:classappend="${type}=='notice'?'on'"><a th:href="@{/board/list(cate=community, type=notice, pg=1)}">공지사항</a></li>
+                <li th:classappend="${type}=='menu'?'on'"><a th:href="@{/board/list(cate=community, type=menu, pg=1)}">오늘의식단</a></li>
+                <li th:classappend="${type}=='chef'?'on'"><a th:href="@{/board/list(cate=community, type=chef, pg=1)}">나도요리사</a></li>
+                <li th:classappend="${type}=='qna'?'on'"><a th:href="@{/board/list(cate=community, type=qna, pg=1)}">고객문의</a></li>
+                <li th:classappend="${type}=='faq'?'on'"><a th:href="@{/board/list(cate=community, type=faq, pg=1)}">자주묻는질문</a></li>
             </ul>
 
         </aside>

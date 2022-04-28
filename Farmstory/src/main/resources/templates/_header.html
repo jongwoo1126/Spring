@@ -6,16 +6,16 @@
         <a th:if="${session.sessUser == null}" th:href="@{/user/login}">로그인 |</a>
         <a th:if="${session.sessUser == null}" th:href="@{/user/terms}">회원가입 |</a>
         <a th:if="${session.sessUser != null}" th:href="@{/user/logout}">로그아웃 |</a>
-        <a th:href="@{/board/list/(cate=community, type=qna)}">고객센터</a>
+        <a th:href="@{/board/list/(cate=community, type=qna, pg=1)}">고객센터</a>
     </p>
     <img th:src="@{/img/head_txt_img.png}" alt="3만원 이상 무료배송"/>
     
     <ul class="gnb">
         <li><a th:href="@{/introduction/hello}">팜스토리소개</a></li>
-        <li><a th:href="@{/board/list(cate=market, type=market)}"><img th:src="@{/img/head_menu_badge.png}" alt="30%"/>장보기</a></li>
-        <li><a th:href="@{/board/list(cate=croptalk, type=story)}">농작물이야기</a></li>
-        <li><a th:href="@{/board/list(cate=event, type=event)}">이벤트</a></li>
-        <li><a th:href="@{/board/list(cate=community, type=notice)}">커뮤니티</a></li>
+        <li><a th:href="@{/board/list(cate=market, type=market, pg=1)}"><img th:src="@{/img/head_menu_badge.png}" alt="30%"/>장보기</a></li>
+        <li><a th:href="@{/board/list(cate=croptalk, type=story, pg=1)}">농작물이야기</a></li>
+        <li><a th:href="@{/board/list(cate=event, type=event, pg=1)}">이벤트</a></li>
+        <li><a th:href="@{/board/list(cate=community, type=notice, pg=1)}">커뮤니티</a></li>
     </ul>
 </header>
 </html>        

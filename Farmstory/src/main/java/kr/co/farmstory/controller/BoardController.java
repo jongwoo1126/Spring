@@ -46,6 +46,7 @@ public class BoardController {
 		model.addAttribute("cate", cate);
 		model.addAttribute("type", type);
 		model.addAttribute("articles", articles);
+		model.addAttribute("pg", pg);
 		model.addAttribute("lastPageNum", lastPageNum);
 		model.addAttribute("currentPage", currentPage);
 		model.addAttribute("pageStartNum", pageStartNum);
@@ -95,17 +96,18 @@ public class BoardController {
 			fvo.setParent(no);
 			service.insertFile(fvo);
 		}
-		return "redirect:/board/list?cate="+vo.getCate()+"&type="+vo.getType();
+		return "redirect:/board/list?cate="+vo.getCate()+"&type="+vo.getType()+"&pg=1";
 	}
 	
 	
 	@GetMapping("/board/view")
-	public String view(@ModelAttribute("sessUser") UserVo sessUser, Model model, int no, String cate, String type) {
+	public String view(@ModelAttribute("sessUser") UserVo sessUser, Model model, int no, String cate, String type, int pg) {
 		
 		ArticleVo article = service.selectArticle(no);
 		
 		model.addAttribute("cate", cate);
 		model.addAttribute("type", type);
+		model.addAttribute("pg", pg);
 		model.addAttribute("article", article);
 		
 		return "/board/view";
@@ -116,4 +118,11 @@ public class BoardController {
 		return "/board/modify";
 	}
 	
+	@GetMapping("/board/delete")
+	public String delete(int no) {
+		
+		service.deleteArticle(no);
+		
+		return "redirect:/board/list";
+	}
 }
