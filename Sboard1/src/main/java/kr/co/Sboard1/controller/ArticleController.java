@@ -1,6 +1,5 @@
 package kr.co.Sboard1.controller;
 
-import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
