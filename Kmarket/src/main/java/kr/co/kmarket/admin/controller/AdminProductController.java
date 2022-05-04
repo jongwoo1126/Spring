@@ -61,4 +61,5 @@ public class AdminProductController {
 		return service.selectCate2(cate1);
 		
 	}
+	
 }
