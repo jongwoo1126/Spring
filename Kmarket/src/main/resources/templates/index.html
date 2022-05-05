@@ -155,7 +155,7 @@
                 <!-- 히트상품 영역 -->
                 <section class="hit">
                     <h3><span>히트상품</span></h3>
-                    <article th:each="product:${hitProduct}">
+                    <article th:each="product:${hitProducts}">
                         <a href="#">
                             <div class="thumb">
                               <img th:src="@{/thumb/{cate1}/{cate2}/{img}(cate1=${product.cate1}, cate2=${product.cate2}, img=${product.thumb1})}" alt="t1">
