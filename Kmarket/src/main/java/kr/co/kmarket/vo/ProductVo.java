@@ -48,6 +48,8 @@ public class ProductVo {
 	
 	// 추가필드
 	private int salePrice;
+	private int order;
+	private int start;
 	
 	private MultipartFile img1;
 	private MultipartFile img2;
