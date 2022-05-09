@@ -19,7 +19,8 @@ public class MainService {
 		return dao.selectCategories();
 	}
 	
-	public List<ProductVo> selectHit(){
-		return dao.selectHit();
+	public List<ProductVo> selectMainProducts(String order){
+		return dao.selectMainProducts(order);
 	}
+	
 }
