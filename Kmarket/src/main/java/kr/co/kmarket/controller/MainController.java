@@ -6,17 +6,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import kr.co.kmarket.admin.vo.ProductVo;
 import kr.co.kmarket.service.MainService;
 import kr.co.kmarket.vo.CategoriesVo;
+import kr.co.kmarket.vo.MemberVo;
 
+@SessionAttributes("sessMember")
 @Controller
 public class MainController {
 
 	@Autowired
 	private MainService service;
+	
+	// 최초에 sessMember값 초기화하는 메서드 
+	@ModelAttribute("sessMember")
+	public MemberVo setMemberVo() {
+		return null;
+	}
 	
 	@GetMapping(value={"/", "/index"})
 	public String index(Model model) {
