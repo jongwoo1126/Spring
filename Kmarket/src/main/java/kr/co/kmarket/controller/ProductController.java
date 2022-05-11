@@ -86,7 +86,7 @@ public class ProductController {
 	
 	@GetMapping("/product/view")
 	public String view(int pid, Model model) {
-		
+
 		ProductVo product = service.selectProduct(pid);
 		CategoriesVo cates = service.selectCateTitles(product);
 		

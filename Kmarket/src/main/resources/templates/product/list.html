@@ -48,7 +48,7 @@
               <table border="0">                  
                 <tr th:each="product:${products}">
                   <td>
-                  	<a th:href="@{/product/view(pid=${product.pid})}">
+                  	<a th:href="@{/product/view(pid=${product.pid})}" class="thumb">
                   		<img th:src="@{/thumb/{cate1}/{cate2}/{img}(cate1=${product.cate1}, cate2=${product.cate2}, img=${product.thumb1})}" alt="상품이미지">
                   	</a>
                   </td>

@@ -47,4 +47,5 @@
 		ON a.pid = b.pid 
 		WHERE `uid`=#{uid};
 	</select>
+	
 </mapper>
