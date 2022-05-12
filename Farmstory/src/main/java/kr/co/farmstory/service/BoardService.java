@@ -70,7 +70,7 @@ public class BoardService {
 		return fvo;
 	}
 	
-public int getLastPageNum(int total){
+	public int getLastPageNum(int total){
 		
 		int lastPageNum = 0;
 		

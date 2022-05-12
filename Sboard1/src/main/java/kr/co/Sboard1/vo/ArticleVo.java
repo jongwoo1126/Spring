@@ -3,7 +3,6 @@ package kr.co.Sboard1.vo;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Transient;
 
 import org.springframework.web.multipart.MultipartFile;
 
