@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +19,7 @@ import kr.co.kmarket.service.ProductService;
 import kr.co.kmarket.vo.CartVo;
 import kr.co.kmarket.vo.CategoriesVo;
 import kr.co.kmarket.vo.MemberVo;
+import kr.co.kmarket.vo.OrderVo;
 import kr.co.kmarket.vo.ProductVo;
 
 @SessionAttributes("sessMember")
@@ -45,8 +48,6 @@ public class ProductController {
 			
 			return "/product/cart";
 		}
-		
-		
 	}
 	
 	@ResponseBody
@@ -60,6 +61,18 @@ public class ProductController {
 		return jsonData;
 	}
 	
+	@ResponseBody
+	@GetMapping("/product/cartDelete")
+	public Map<String, Integer> cartDelete(int[] cids) {
+		int result = service.deleteCart(cids);
+		
+		Map<String, Integer> map = new HashMap<>();
+		map.put("result", result);
+		
+		return map;
+	}
+
+	
 	@GetMapping("/product/complete")
 	public String complete() {
 		return "/product/complete";
@@ -67,7 +80,7 @@ public class ProductController {
 	
 	@GetMapping("/product/list")
 	public String list(ProductVo vo, Model model) {
-		
+		//Mybatis
 		int start = 0;
 		int order = vo.getOrder();
 		
@@ -99,6 +112,27 @@ public class ProductController {
 	@GetMapping("/product/order")
 	public String order() {
 		return "/product/order";
+	}
+	
+	@ResponseBody
+	@PostMapping("/product/order")
+	public Map<String, Integer> order(OrderVo vo) {
+
+		// 주문장 등록
+		int oid = service.insertOrder(vo);
+		
+		// 개별 상품 등록
+		int[] counts = vo.getCounts();
+		int i = 0;
+		for(int pid : vo.getPids()) {
+			service.insertOrderDetail(oid, pid, oid);
+			i++;
+		}
+		
+		Map<String, Integer> map = new HashMap<>();
+		map.put("result", vo.getOid());
+		
+		return map;
 	}
 	
 	@GetMapping("/product/search")
