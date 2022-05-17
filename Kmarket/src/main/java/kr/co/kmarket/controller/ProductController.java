@@ -124,7 +124,7 @@ public class ProductController {
 		int[] counts = vo.getCounts();
 		int i = 0;
 		for(int pid : vo.getPids()) {
-			service.insertOrderDetail(oid, pid, oid);
+			service.insertOrderDetail(oid, pid, counts[i]);
 			i++;
 		}
 		
@@ -139,6 +139,7 @@ public class ProductController {
 		return "/product/complete";
 	}
 	
+	@ResponseBody
 	@PostMapping("/product/complete")
 	public Map<String, Integer> complete(OrderVo vo) {
 		
