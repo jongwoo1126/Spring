@@ -226,7 +226,7 @@
 					dataType : 'json',
 					success : function(data) {
 						//alert(data.result);
-						location.href='/product/order';
+						location.href='/product/order?oid='+data.result;
 					}
 				});
 			});

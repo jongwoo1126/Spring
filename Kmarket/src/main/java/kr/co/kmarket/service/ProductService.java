@@ -51,4 +51,12 @@ public class ProductService {
 	public void insertOrderDetail(int oid, int pid, int count) {
 		dao.insertOrderDetail(oid, pid, count);
 	}
+	
+	public List<OrderVo> selectOrders(int oid){
+		return dao.selectOrders(oid);
+	}
+	
+	public int updateOrder(OrderVo vo) {
+		return dao.updateOrder(vo);
+	}
 }

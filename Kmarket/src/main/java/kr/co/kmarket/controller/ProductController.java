@@ -72,12 +72,6 @@ public class ProductController {
 		return map;
 	}
 
-	
-	@GetMapping("/product/complete")
-	public String complete() {
-		return "/product/complete";
-	}
-	
 	@GetMapping("/product/list")
 	public String list(ProductVo vo, Model model) {
 		//Mybatis
@@ -110,7 +104,12 @@ public class ProductController {
 	}
 	
 	@GetMapping("/product/order")
-	public String order() {
+	public String order(int oid, Model model) {
+		
+		List<OrderVo> orders = service.selectOrders(oid);
+		model.addAttribute("orders", orders);
+		model.addAttribute("order", orders.get(0));
+		
 		return "/product/order";
 	}
 	
@@ -131,6 +130,23 @@ public class ProductController {
 		
 		Map<String, Integer> map = new HashMap<>();
 		map.put("result", vo.getOid());
+		
+		return map;
+	}
+
+	@GetMapping("/product/complete")
+	public String complete() {
+		return "/product/complete";
+	}
+	
+	@PostMapping("/product/complete")
+	public Map<String, Integer> complete(OrderVo vo) {
+		
+		service.updateOrder(vo);
+		
+		int oid = vo.getOid();
+		Map<String, Integer> map = new HashMap<>();
+		map.put("result", oid);
 		
 		return map;
 	}
