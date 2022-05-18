@@ -4,6 +4,37 @@
     <meta charset="UTF-8">
     <title>케이마켓::약관</title>
     <link rel="stylesheet" th:href="@{/css/member/member.css}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+		$(function() {
+			//alert('start');
+			//let isChecked = $(this).is(':checked');
+			
+			$('input[name=agree]').click(function() {
+				//alert('start');
+				let termsIsChecked = $('input[name=agree1]').is(':checked');
+				let financialIsChecked = $('input[name=agree2]').is(':checked');
+				let privacyIsChecked = $('input[name=agree3]').is(':checked');
+				let locationIsChecked = $('input[name=agree4]').is(':checked');
+				
+				if(!termsIsChecked){
+					alert('이용약관에 동의하여주시기 바랍니다.');
+					return false;
+					
+				}else if(!financialIsChecked){
+					alert('전자금융거래 이용약관에 동의하여주시기 바랍니다.');
+					return false;
+					
+				}else if(!privacyIsChecked){
+					alert('개인정보 수집에 동의하여주시기 바랍니다.');
+					return false;
+					
+				}else {
+						location.href='/member/register'
+				}
+			});
+		});
+</script>
 </head>
 <body>
     <div id="member-wrapper">
@@ -13,30 +44,29 @@
 				<h1>약관동의</h1>
 				<section>
 					<h3><span class="essential">(필수)</span>케이마켓 이용약관</h3>
-					<textarea class="terms" readonly></textarea>
+					<textarea class="terms" readonly>[[${termsVo.terms}]]</textarea>
 					<label><input type="checkbox" name="agree1" />동의합니다.</label>
 
 					<h3><span class="essential">(필수)</span>전자금융거래 이용약관</h3>
-					<textarea class="financial" readonly></textarea>
+					<textarea class="financial" readonly>[[${termsVo.finance}]]</textarea>
 					<label><input type="checkbox" name="agree2" />동의합니다.</label>
 
 					<h3><span class="essential">(필수)</span>개인정보 수집동의</h3>
-					<textarea class="privacy" readonly></textarea>
+					<textarea class="privacy" readonly>[[${termsVo.privacy}]]</textarea>
 					<label><input type="checkbox" name="agree3" />동의합니다.</label>
 				</section>
 
 				<section>
 					<h3><span class="optional">(선택)</span>위치정보 이용약관</h3>
-					<textarea class="location" readonly></textarea>
+					<textarea class="location" readonly>[[${termsVo.location}]]</textarea>
 					<label><input type="checkbox" name="agree4" />동의합니다.</label>
 				</section>
 
 				<div>
-					<input type="button" class="agree" value="동의하기" />
+					<input type="button" name= "agree" class="agree" value="동의하기" />
 				</div>
             </div>
         </main>        
-        <footer>
         <th:block th:include="@{_footer.html}"/>
     </div>    
 </body>

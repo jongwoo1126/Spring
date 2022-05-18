@@ -263,7 +263,7 @@
                       <th>총수량</th>
                       <th>판매가</th>
                       <th>할인</th>
-                      <th>포인트</th>
+                      <th>적립 포인트</th>
                       <th>배송비</th>
                       <th>소계</th>
                     </tr>
@@ -283,21 +283,21 @@
                       </td>
                       <td>
                         <article>
-                          <a href="#">
+                          <a th:href="@{/product/view(pid=${product.pid})}">
                           	<img th:src="@{/thumb/{cate1}/{cate2}/{img}(cate1=${product.cate1}, cate2=${product.cate2}, img=${product.thumb1})}" alt="상품이미지">
                           </a>
                           <div>
-                            <h2><a href="#">[[${product.name}]]</a></h2>
+                            <h2><a th:href="@{/product/view(pid=${product.pid})}">[[${product.name}]]</a></h2>
                           </div>
                         </article>
                       </td>
                       <td class="count">[[${product.count}]]</td>
-                      <td class="price">[[${#numbers.formatInteger(product.price, 3, 'COMMA')}]]</td>
+                      <td class="price">[[${#numbers.formatInteger(product.price, 0, 'COMMA')}]]</td>
                       <td class="discount">[[${product.discount}]]%</td>
-                      <td class="point">[[${#numbers.formatInteger(product.point, 3, 'COMMA')}]]</td>
+                      <td class="point">[[${#numbers.formatInteger(product.point, 0, 'COMMA')}]]</td>
                       <td class="delivery" th:if="${product.delivery == 0}">무료배송</td>
-                      <td class="delivery" th:if="${product.delivery != 0}">[[${#numbers.formatInteger(product.delivery, 3, 'COMMA')}]]</td>
-                      <td class="total">[[${#numbers.formatInteger(product.total, 3, 'COMMA')}]]</td>
+                      <td class="delivery" th:if="${product.delivery != 0}">[[${#numbers.formatInteger(product.delivery, 0, 'COMMA')}]]</td>
+                      <td class="total">[[${#numbers.formatInteger(product.total + product.delivery, 0, 'COMMA')}]]</td>
                     </tr>
                   </tbody>
                 </table>
@@ -325,7 +325,7 @@
                       <td class="delivery">0</td>
                     </tr>              
                     <tr>
-                      <td>포인트</td>
+                      <td>적립 포인트</td>
                       <td class="point">0</td>
                     </tr>
                     <tr>

@@ -97,10 +97,11 @@
                         </article>
                       </td>
                       <td>[[${product.cnt}]]</td>
-                      <td class="point">[[${#numbers.formatInteger(product.pPrice, 3, 'COMMA')}]]</td>
+                      <td>[[${#numbers.formatInteger(product.pPrice, 3, 'COMMA')}]]</td>
                       <td th:if="${product.pDelivery == 0}">무료배송</td>
-                      <td th:if="${product.pDelivery != 0}" class="point">[[${#numbers.formatInteger(product.pDelivery, 3, 'COMMA')}]]원</td></td>
-                      <td class="point">[[${#numbers.formatInteger(product.cnt * product.pPrice, 3, 'COMMA')}]]</td>
+                      <td th:if="${product.pDelivery != 0}">[[${#numbers.formatInteger(product.pDelivery, 0, 'COMMA')}]]원</td>
+                      <td>[[${#numbers.formatInteger(product.pPoint, 0, 'COMMA')}]]원</td>
+                      <td>[[${#numbers.formatInteger(product.cnt * product.pPrice, 3, 'COMMA')}]]</td>
                     </tr>
                   </tbody>
                 </table>                 
@@ -115,15 +116,15 @@
                     </tr>
                     <tr>
                       <td>상품금액</td>
-                      <td>[[${#numbers.formatInteger(order.cnt * order.price, 3, 'COMMA')}]]원</td>
+                      <td>[[${#numbers.formatInteger(order.cnt * order.price, 0, 'COMMA')}]]원</td>
                     </tr>
                     <tr>
                       <td>할인금액</td>
-                      <td>-[[${#numbers.formatInteger(order.discount, 3, 'COMMA')}]]원</td>
+                      <td>-[[${#numbers.formatInteger(order.discount, 0, 'COMMA')}]]원</td>
                     </tr>
                     <tr>
                       <td>배송비</td>
-                      <td>[[${#numbers.formatInteger(order.delivery, 3, 'COMMA')}]]원</td>
+                      <td>[[${#numbers.formatInteger(order.delivery, 0, 'COMMA')}]]원</td>
                     </tr>
                     <tr>
                       <td>포인트 할인</td>
@@ -131,7 +132,7 @@
                     </tr>
                     <tr>
                       <td>전체주문금액</td>
-                      <td>[[${#numbers.formatInteger(order.total, 3, 'COMMA')}]]원</td>
+                      <td>[[${#numbers.formatInteger(order.total, 0, 'COMMA')}]]원</td>
                     </tr>                            
                   </table>
                   <input type="button" name="order" value="결제하기">              

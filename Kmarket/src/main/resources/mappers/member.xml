@@ -4,4 +4,8 @@
 	<select id="selectMember" resultType="kr.co.kmarket.vo.MemberVo">
 		SELECT * FROM `km_member` WHERE `uid`=#{uid} AND `pass`= PASSWORD(#{pass});
 	</select>
+	
+	<select id="selectTerms" resultType="kr.co.kmarket.vo.TermsVo">
+		SELECT * FROM `km_member_terms`;
+	</select>
 </mapper>

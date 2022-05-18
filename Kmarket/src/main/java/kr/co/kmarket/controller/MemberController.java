@@ -11,6 +11,8 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import kr.co.kmarket.service.MemberService;
 import kr.co.kmarket.vo.MemberVo;
+import kr.co.kmarket.vo.TermsVo;
+
 @SessionAttributes("sessMember")
 @Controller
 public class MemberController {
@@ -65,7 +67,10 @@ public class MemberController {
 	}
 	
 	@GetMapping("/member/signup")
-	public String signup() {
+	public String signup(Model model) {
+		TermsVo terms = service.selectTerms();
+		model.addAttribute(terms);
+		
 		return "/member/signup";
 	}
 }
