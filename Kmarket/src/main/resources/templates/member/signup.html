@@ -16,6 +16,9 @@
 				let financialIsChecked = $('input[name=agree2]').is(':checked');
 				let privacyIsChecked = $('input[name=agree3]').is(':checked');
 				let locationIsChecked = $('input[name=agree4]').is(':checked');
+				let param = window.location.search;
+				//alert(param);
+				
 				
 				if(!termsIsChecked){
 					alert('이용약관에 동의하여주시기 바랍니다.');
@@ -30,7 +33,12 @@
 					return false;
 					
 				}else {
-						location.href='/member/register'
+					if(param == "?register=seller"){
+						location.href='/member/register-seller'
+					}else{
+						location.href='/member/register'	
+					}
+						
 				}
 			});
 		});
