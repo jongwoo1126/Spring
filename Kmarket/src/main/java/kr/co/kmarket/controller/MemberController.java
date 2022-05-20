@@ -59,7 +59,8 @@ public class MemberController {
 	}
 	
 	@GetMapping("/member/register")
-	public String register() {
+	public String register(MemberVo vo) {
+		service.insertMember(vo);
 		return "/member/register";
 	}
 	
