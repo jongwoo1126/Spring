@@ -5,41 +5,7 @@
 		SELECT * FROM `km_member` WHERE `uid`=#{uid} AND `pass`= PASSWORD(#{pass});
 	</select>
 	
-	<insert id="insertMember">
-		<!-- 
-		
-		INSERT INTO `km_member` SET
-			`uid`=#{uid},
-			`pass`=#{pass},
-			`name`=#{name},
-			`gender`=#{gender},
-			`hp`=#{hp},
-			`email`=#{email},
-			`type`=#{type},
-			`point`=#{point},
-			`grade`=#{grade},
-			`zip`=#{zip},
-			`addr1`=#{addr1},
-			`addr2`=#{addr2},
-			`company`=#{company},
-			`ceo`=#{ceo},
-			`bizRegNum`=#{bizRegNum},
-			`commRepNum`=#{commRepNum},
-			`tel`=#{tel},
-			`manager`=#{manager},
-			`managerHp`=#{managerHp},
-			`fax`=#{fax},
-			`ip`=#{ip},
-			`leaveDate`=#{leaveDate},
-			`rdate`=#{rdate},
-			`etc1`=#{etc1},
-			`etc2`=#{etc2},
-			`etc3`=#{etc3},
-			`etc4`=#{etc4},
-			`etc5`=#{etc5}
-			
-		 -->
-	</insert>
+	<insert id="insertMember"></insert>
 	
 	<select id="selectTerms" resultType="kr.co.kmarket.vo.TermsVo">
 		SELECT * FROM `km_member_terms`;

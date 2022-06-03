@@ -13,7 +13,7 @@ public interface MemberDao {
 
 	public MemberVo selectMember(MemberVo vo);
 	
-	public void insertMember(MemberVo vo);
+	public void insertMember();
 	
 	public TermsVo selectTerms();
 }

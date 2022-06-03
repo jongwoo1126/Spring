@@ -19,7 +19,6 @@ public class MemberService {
 	}
 	
 	public void insertMember(MemberVo vo) {
-		dao.insertMember(vo);
 	}
 	
 	public TermsVo selectTerms() {
